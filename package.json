@@ -1,6 +1,6 @@
 {
   "name": "serverless-layer-deployer",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "deploy layer smoothly",
   "main": "lib/index.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "@types/archiver": "^5.1.0",
     "@types/jest": "^26.0.19",
     "@types/klaw": "^3.0.1",
+    "dotenv": "^8.2.0",
     "eslint": "^7.17.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
@@ -45,5 +46,8 @@
     "klaw": "^3.0.0",
     "lodash.merge": "^4.6.2",
     "serverless-config-generator": "^1.0.3"
+  },
+  "engines": {
+    "node": ">= 10"
   }
 }

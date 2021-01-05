@@ -3,3 +3,5 @@ package-lock.json
 yarn.lock
 .vscode
 *.zip
+.env
+.serverless
