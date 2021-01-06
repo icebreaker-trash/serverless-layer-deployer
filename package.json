@@ -25,9 +25,7 @@
   },
   "homepage": "https://github.com/sonofmagic/serverless-layer-deployer#readme",
   "devDependencies": {
-    "@types/archiver": "^5.1.0",
     "@types/jest": "^26.0.19",
-    "@types/klaw": "^3.0.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.17.0",
     "eslint-config-standard": "^16.0.2",
@@ -38,14 +36,12 @@
     "jest": "^26.6.3"
   },
   "dependencies": {
-    "archiver": "^5.1.0",
     "cli-progress": "^3.8.2",
     "cos-nodejs-sdk-v5": "^2.8.5",
     "execa": "^5.0.0",
-    "js-yaml": "^4.0.0",
-    "klaw": "^3.0.0",
     "lodash.merge": "^4.6.2",
-    "serverless-config-generator": "^1.0.3"
+    "serverless-config-generator": "^1.0.4",
+    "simple-archiver-cli": "^1.0.1"
   },
   "engines": {
     "node": ">= 10"
