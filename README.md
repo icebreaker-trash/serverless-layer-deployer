@@ -1,6 +1,12 @@
 # serverless-layer-deployer
 
 > help you deploy layer smoothly
+
+## Now
+
+[x] Tencent Cloud layer deploy support
+
+[ ] AWS layer deploy support
 ## Before install
 
 you should install serverless globally
@@ -8,6 +14,65 @@ you should install serverless globally
 ```sh
 npm i -g serverless
 ```
+
+## How to use?
+
+```sh
+npm i -D serverless-layer-deployer
+# or
+yarn add -D serverless-layer-deployer
+```
+
+then
+
+```js
+const {
+  deployLayer
+} = require('serverless-layer-deployer')
+
+// deployLayer has 3 arg arguments
+// ymlOpion , compressOption and cosOption
+const ymlOpt = {
+  // Required
+  name:'this-is-my-first-layer',
+  // Optional
+  stage: 'dev',//default 'dev'
+  inputs:{
+    // Required
+    name:'webapi-runtime-layer',
+    region: 'ap-shanghai',
+
+    // Optional
+    description: 'hello world? yes',
+    runtimes: ['Nodejs10.15', 'Nodejs12.16']
+  }
+}
+;(async ()=>{
+  // full argument
+  await deployLayer(ymlOpt,compressOpt,cosOpt)
+  // or with defalut cosOption
+  await deployLayer(ymlOpt,compressOpt)
+  // or with all defalut compressOption cosOption
+  await deployLayer(ymlOpt)
+}) 
+
+```
+
+## Option
+
+|params|type|default|desc|
+|---|---|:---:|---|
+|ymlOption|Object|{}|option to generate yml|
+|compressOption|Object||compressOption|
+|compressOption.dirpath|String|path.resolve(process.cwd(), 'node_modules')|dirpath|
+|compressOption.destpath|String|path.resolve(process.cwd(), '.serverless/layer/node_modules.zip')|destpath|
+|cosOption|Object||Tencent Cos Option|
+|cosOption.SecretId|String|process.env.TENCENT_SECRET_ID|Tencent Cloud SecretId|
+|cosOption.SecretKey|String|process.env.TENCENT_SECRET_KEY|Tencent Cloud SecretKey|
+|cosOption.Bucket|String|process.env.TENCENT_COS_LAYER_BUCKET|Tencent Cloud Cos target Bucket|
+|cosOption.Region|String|process.env.TENCENT_COS_LAYER_REGION|Tencent Cloud Cos target Region|
+
+You can see all Tencent Cloud Layer ymlOption [here](https://github.com/serverless-components/tencent-layer/blob/master/docs/configure.md)
 
 ## What the package does ?
 

@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/sonofmagic/serverless-layer-deployer.git"
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "layer",
     "serverless",

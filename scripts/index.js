@@ -1,16 +1,7 @@
 const {
-  deployLayer,
-  compress,
-  tencent
+  deployLayer
 } = require('..')
 require('dotenv').config()
-const path = require('path')
-const {
-  TENCENT_SECRET_ID,
-  TENCENT_SECRET_KEY,
-  TENCENT_COS_LAYER_BUCKET,
-  TENCENT_COS_LAYER_REGION
-} = process.env
 
 const ymlExample = {
   name: 'layer-test-202101',
