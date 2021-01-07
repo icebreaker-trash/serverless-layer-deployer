@@ -4,9 +4,10 @@
 
 ## Now
 
-[x] Tencent Cloud layer deploy support
+- [x] Tencent Cloud layer deploy support
 
-[ ] AWS layer deploy support
+- [ ] AWS layer deploy support
+
 ## Before install
 
 you should install serverless globally
@@ -27,10 +28,10 @@ then
 
 ```js
 const {
-  deployLayer
+  deployTencentLayer
 } = require('serverless-layer-deployer')
 
-// deployLayer has 3 arg arguments
+// deployTencentLayer has 3 arg arguments
 // ymlOpion , compressOption and cosOption
 const ymlOpt = {
   // Required
@@ -49,11 +50,11 @@ const ymlOpt = {
 }
 ;(async ()=>{
   // full argument
-  await deployLayer(ymlOpt,compressOpt,cosOpt)
+  await deployTencentLayer(ymlOpt,compressOpt,cosOpt)
   // or with defalut cosOption
-  await deployLayer(ymlOpt,compressOpt)
+  await deployTencentLayer(ymlOpt,compressOpt)
   // or with all defalut compressOption cosOption
-  await deployLayer(ymlOpt)
+  await deployTencentLayer(ymlOpt)
 }) 
 
 ```
