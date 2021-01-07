@@ -22,12 +22,7 @@ const ymlExample = {
 }
 
 async function main () {
-  const dirpath = path.resolve(__dirname, '../node_modules')
-  const destpath = path.resolve(__dirname, '../.serverless/layer/node_modules.zip')
-  await deployLayer({
-    destpath,
-    dirpath
-  }, {}, ymlExample)
+  await deployLayer(ymlExample)
 }
 
 main()
