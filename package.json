@@ -1,6 +1,6 @@
 {
   "name": "serverless-layer-deployer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "deploy layer smoothly",
   "main": "lib/index.js",
   "scripts": {
@@ -44,7 +44,7 @@
     "execa": "^5.0.0",
     "lodash.merge": "^4.6.2",
     "serverless-config-generator": "^1.0.4",
-    "simple-archiver-cli": "^1.0.3"
+    "simple-archiver-cli": "^1.0.4"
   },
   "engines": {
     "node": ">= 10"

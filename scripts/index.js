@@ -20,7 +20,11 @@ async function main () {
   //   [32m  - [39mNodejs10.15
   //   [32m  - [39mNodejs12.16
   //   [1mversion: [22m    [34m12[39m`)
-  const res = await deployTencentLayer(ymlExample)
+  const res = await deployTencentLayer(ymlExample, {
+    option: {
+      innerPath: 'node_modules'
+    }
+  })
   const { stdout } = res
   await fsp.writeFile('./serverless.stdout.txt', stdout, {
     encoding: 'utf8'
