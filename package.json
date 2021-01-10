@@ -1,6 +1,6 @@
 {
   "name": "serverless-layer-deployer",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "deploy layer smoothly",
   "main": "lib/index.js",
   "scripts": {
@@ -19,7 +19,10 @@
     "layer",
     "serverless",
     "tencent",
-    "cloud"
+    "cloud",
+    "serverless layer",
+    "tencent cloud",
+    "serverless framework"
   ],
   "author": "sonofmagic <1324318532@qq.com>",
   "license": "ISC",
