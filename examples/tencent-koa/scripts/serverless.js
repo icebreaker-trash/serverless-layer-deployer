@@ -24,7 +24,7 @@ module.exports = {
     layers: [
       {
         name: 'serverless-layer-deployer-tencent-koa-example-layer',
-        version: 1
+        version: 3
       }
     ]
   }

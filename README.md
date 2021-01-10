@@ -28,7 +28,8 @@ then
 
 ```js
 const {
-  deployTencentLayer
+  deployTencentLayer,
+  overrideLayerVersion
 } = require('serverless-layer-deployer')
 
 // deployTencentLayer has 3 arg arguments
@@ -54,24 +55,43 @@ const ymlOpt = {
   // or with defalut cosOption
   await deployTencentLayer(ymlOpt,compressOpt)
   // or with all defalut compressOption cosOption
-  await deployTencentLayer(ymlOpt)
+  const stat = await deployTencentLayer(ymlOpt)
+  // example 
+  const {
+    region,
+    name,
+    bucket,
+    object,
+    description,
+    runtimes,
+    version
+  } = stat
+  //the method will override the version in your serverless deploy config file
+  await overrideLayerVersion(
+    version,
+    path.resolve(__dirname, 'serverless.js')
+  )
+
+  //view more in examples
+    
+  
 }) 
 
 ```
 
 ## Option
 
-|params|type|default|desc|
-|---|---|:---:|---|
-|ymlOption|Object|{}|option to generate yml|
-|compressOption|Object||compressOption|
-|compressOption.dirpath|String|path.resolve(process.cwd(), 'node_modules')|dirpath|
-|compressOption.destpath|String|path.resolve(process.cwd(), '.serverless/layer/node_modules.zip')|destpath|
-|cosOption|Object||Tencent Cos Option|
-|cosOption.SecretId|String|process.env.TENCENT_SECRET_ID|Tencent Cloud SecretId|
-|cosOption.SecretKey|String|process.env.TENCENT_SECRET_KEY|Tencent Cloud SecretKey|
-|cosOption.Bucket|String|process.env.TENCENT_COS_LAYER_BUCKET|Tencent Cloud Cos target Bucket|
-|cosOption.Region|String|process.env.TENCENT_COS_LAYER_REGION|Tencent Cloud Cos target Region|
+| params                  | type   |                              default                              | desc                            |
+| ----------------------- | ------ | :---------------------------------------------------------------: | ------------------------------- |
+| ymlOption               | Object |                                {}                                 | option to generate yml          |
+| compressOption          | Object |                                                                   | compressOption                  |
+| compressOption.dirpath  | String |            path.resolve(process.cwd(), 'node_modules')            | dirpath                         |
+| compressOption.destpath | String | path.resolve(process.cwd(), '.serverless/layer/node_modules.zip') | destpath                        |
+| cosOption               | Object |                            process.env                            | Tencent Cos Option              |
+| cosOption.SecretId      | String |                         TENCENT_SECRET_ID                         | Tencent Cloud SecretId          |
+| cosOption.SecretKey     | String |                        TENCENT_SECRET_KEY                         | Tencent Cloud SecretKey         |
+| cosOption.Bucket        | String |                     TENCENT_COS_LAYER_BUCKET                      | Tencent Cloud Cos target Bucket |
+| cosOption.Region        | String |                     TENCENT_COS_LAYER_REGION                      | Tencent Cloud Cos target Region |
 
 You can see all Tencent Cloud Layer ymlOption [here](https://github.com/serverless-components/tencent-layer/blob/master/docs/configure.md)
 
