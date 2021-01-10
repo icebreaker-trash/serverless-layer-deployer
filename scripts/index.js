@@ -1,6 +1,9 @@
 const { deployTencentLayer } = require('..')
+const { yaml } = require('serverless-config-generator')
 require('dotenv').config()
 const fsp = require('fs').promises
+const globalModules = require('global-modules')
+const stripAnsi = require('strip-ansi')
 const ymlExample = {
   name: 'layer-test-202101',
   inputs: {
@@ -11,22 +14,28 @@ const ymlExample = {
 }
 
 async function main () {
-  // console.log(`[J[1mregion: [22m     ap-shanghai
-  //   [1mname: [22m       sls-layer-deploy-test
-  //   [1mbucket: [22m     sls-layer-ap-shanghai-code
-  //   [1mobject: [22m     node_modules.zip
-  //   [1mdescription: [22mauto deploy by serverless-layer-deployer
-  //   [1mruntimes: [22m
-  //   [32m  - [39mNodejs10.15
-  //   [32m  - [39mNodejs12.16
-  //   [1mversion: [22m    [34m12[39m`)
+  // const data = await fsp.readFile('.serverless/layer/serverless.stdout.txt', {
+  //   encoding: 'utf-8'
+  // })
+  // const strippedStr = stripAnsi(data)
+  // const endLine = 'aNA\n'
+  // const p = strippedStr.lastIndexOf(endLine)
+  // const q = strippedStr.lastIndexOf('Full details')
+  // const target = strippedStr.substring(p + endLine.length, q)
+
+  // const yyy = yaml.load(target)
+  // console.log(target, yyy)
+
+  // const unhandleString =
+  // console.log(unhandleString)
   const res = await deployTencentLayer(ymlExample, {
     option: {
       innerPath: 'node_modules'
     }
   })
-  const { stdout } = res
-  await fsp.writeFile('./serverless.stdout.txt', stdout, {
+
+  // const { stdout } = res
+  await fsp.writeFile('./serverless.stdout.json', JSON.stringify(res), {
     encoding: 'utf8'
   })
 }
