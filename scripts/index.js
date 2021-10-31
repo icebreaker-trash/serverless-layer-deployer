@@ -3,7 +3,7 @@ const { yaml } = require('serverless-config-generator')
 require('dotenv').config()
 const fsp = require('fs').promises
 const globalModules = require('global-modules')
-const stripAnsi = require('strip-ansi')
+
 const ymlExample = {
   name: 'layer-test-202101',
   inputs: {
