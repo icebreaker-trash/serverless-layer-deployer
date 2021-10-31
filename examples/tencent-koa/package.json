@@ -7,6 +7,7 @@
     "start": "node ./listener.js",
     "gen": "sls-gen -i ./scripts/serverless.js",
     "deploy:layer": "node ./scripts/deploy.js",
+    "deploy:layer2": "node ./deploy.js",
     "deploy": "npm run gen & serverless deploy"
   },
   "keywords": [],

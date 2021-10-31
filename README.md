@@ -8,6 +8,7 @@
 
 - [ ] AWS layer deploy support
 
+> There is no need to install `serverless` or `@serverless/components` globally because this package is directly dependent on `@serverless/platform-client`.
 ## How to use?
 
 ```sh
