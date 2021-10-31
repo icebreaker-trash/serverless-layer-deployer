@@ -6,6 +6,8 @@
   "scripts": {
     "test": "jest",
     "dev": "node scripts/index.js",
+    "dev:g": "cd .serverless/layer && components deploy",
+    "dev:sdk": "node scripts/sdk.js",
     "publish:npm": "yarn publish --registry https://registry.npmjs.org/"
   },
   "repository": {
@@ -31,26 +33,25 @@
   },
   "homepage": "https://github.com/sonofmagic/serverless-layer-deployer#readme",
   "devDependencies": {
-    "@types/jest": "^26.0.22",
-    "dotenv": "^8.2.0",
-    "eslint": "^7.25.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.3.5",
+    "@types/jest": "^27.0.2",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.1.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^25.2.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "jest": "^26.6.3"
+    "eslint-plugin-promise": "^5.1.1",
+    "jest": "^27.3.1"
   },
   "dependencies": {
-    "@serverless/platform-client-china": "^2.1.10",
-    "cli-progress": "^3.9.0",
-    "cos-nodejs-sdk-v5": "^2.9.13",
-    "execa": "^5.0.0",
+    "@serverless/platform-client-china": "^2.2.7",
+    "cli-progress": "^3.9.1",
+    "cos-nodejs-sdk-v5": "^2.10.6",
     "global-modules": "^2.0.0",
     "lodash.merge": "^4.6.2",
     "serverless-config-generator": "^1.0.4",
     "simple-archiver-cli": "^1.0.4",
-    "strip-ansi": "^7.0.0"
+    "uuid": "^8.3.2"
   },
   "engines": {
     "node": ">= 10"

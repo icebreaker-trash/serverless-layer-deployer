@@ -8,14 +8,6 @@
 
 - [ ] AWS layer deploy support
 
-## Before install
-
-you should install serverless globally
-
-```sh
-npm i -g serverless
-```
-
 ## How to use?
 
 ```sh
@@ -28,8 +20,7 @@ then
 
 ```js
 const {
-  deployTencentLayer,
-  overrideLayerVersion
+  deployTencentLayer
 } = require('serverless-layer-deployer')
 
 // deployTencentLayer has 3 arg arguments
@@ -55,22 +46,30 @@ const ymlOpt = {
   // or with defalut cosOption
   await deployTencentLayer(ymlOpt,compressOpt)
   // or with all defalut compressOption cosOption
-  const stat = await deployTencentLayer(ymlOpt)
+
+  // serverless framework deploy response
+  const deployResponse = await deployTencentLayer(ymlOpt)
+
+  const { outputs ,state, inputs , ... } =  deployResponse
   // example 
-  const {
-    region,
-    name,
-    bucket,
-    object,
-    description,
-    runtimes,
-    version
-  } = stat
+  // description: null,
+  // instanceStatus: 'active',
+  // deploymentError: null,
+  // deploymentErrorStack: null,
+  // lastAction: 'deploy',
+  // createdAt: 1609839132795,
+  // updatedAt: 1635680031852,
+  // lastDeployedAt: 1635680024519,
+  // lastActionAt: 1635680024519,
+  // instanceMetrics: { actions: 28, deployments: 28, removes: 0, errors: 5 },
+  // appUid: 's1DsrTTC39nKN9h78K',
+  // orgUid: 1257725330,
+  // instanceId: '1257725330.dev.s1DsrTTC39nKN9h78K.layer-test-202101',
+  // deploymentErrorDetail: 'Cannot create layer success in 2 minutes, status: PublishFailed(reqId: adc62fa6-6eb6-4ae2-bb08-8636fd853158)',
+  // deploymentErrorType: 'API_LAYER_GetLayerVersion',
+  // deploymentErrorCode: null
+
   //the method will override the version in your serverless deploy config file
-  await overrideLayerVersion(
-    version,
-    path.resolve(__dirname, 'serverless.js')
-  )
 
   //view more in examples
     

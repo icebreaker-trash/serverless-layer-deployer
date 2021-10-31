@@ -15,7 +15,6 @@ const ymlOpt = {
   }
 }
 ;(async () => {
-  const { version } = await deployTencentLayer(ymlOpt)
-  const serverlessPath = path.resolve(__dirname, 'serverless.js')
-  await overrideLayerVersion(version, serverlessPath)
+  const res = await deployTencentLayer(ymlOpt)
+  console.log(res)
 })()
