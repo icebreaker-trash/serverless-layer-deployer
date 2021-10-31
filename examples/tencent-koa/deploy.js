@@ -1,4 +1,4 @@
-const { deployTencentLayer } = require('../../lib')
+const { deployTencentLayer } = require('serverless-layer-deployer')
 const path = require('path')
 require('dotenv').config({
   path: path.resolve(__dirname, '../../.env')
